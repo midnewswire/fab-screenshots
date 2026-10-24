@@ -1,0 +1,26 @@
+# Adds the demo nature photos (Lorem Picsum, Unsplash license) to demo/wallpapers/nature.
+name: demo-photos
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/demo-photos.yml']
+permissions:
+  contents: write
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - run: |
+          mkdir -p demo/wallpapers/nature
+          n=0
+          for id in 10 11 15 16 17 28 29 37 41 54 57 58; do
+            n=$((n+1))
+            curl -sSfL "https://picsum.photos/id/$id/1080/2340.jpg" -o demo/wallpapers/nature/nature_$(printf %02d $n).jpg
+          done
+          ls -la demo/wallpapers/nature
+          git config user.name "midnewswire"
+          git config user.email "234676195+midnewswire@users.noreply.github.com"
+          git add demo/wallpapers/nature
+          git commit -qm "Add demo nature photos"
+          git push
