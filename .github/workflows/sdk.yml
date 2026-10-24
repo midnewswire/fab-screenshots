@@ -1,0 +1,29 @@
+# Publishes the Android SDK pieces needed to build the apps elsewhere (platform 36 + build tools)
+# to the `sdk` branch, split into parts under GitHub's file size limit.
+name: sdk
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/sdk.yml']
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pack
+        run: |
+          cd "$ANDROID_HOME"
+          ls platforms build-tools ndk 2>/dev/null || true
+          BT=$(ls build-tools | sort -V | grep -E '^3[56]' | tail -2 | sed 's#^#build-tools/#' | tr '\n' ' ')
+          mkdir -p /tmp/out
+          tar --zstd -cf /tmp/out/sdk.tar.zst platforms/android-36* $BT licenses
+          cd /tmp/out && split -b 90m sdk.tar.zst sdk.part. && rm sdk.tar.zst && ls -la
+      - name: Publish
+        run: |
+          cd /tmp/out
+          git init -q -b sdk
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add . && git commit -qm "Android SDK parts"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" sdk
