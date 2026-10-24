@@ -1,0 +1,18 @@
+{
+  "app_name": "Fab Radios",
+  "theme": { "primary": "#6A1B9A", "dark_mode": "dark" },
+  "layout": "grid",
+  "show_featured": true,
+  "show_recent": true,
+  "show_countries": true,
+  "player": { "now_playing": true, "artwork_lookup": true, "sleep_timer": true },
+  "share_text": "",
+  "privacy_policy_url": "",
+  "terms_url": "",
+  "about": "",
+  "contact_email": "",
+  "rate_after_launches": 5,
+  "push": { "topic": "all" },
+  "update": { "min_version_code": 0, "url": "" },
+  "ads": { "enabled": false }
+}

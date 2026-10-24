@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="shuffle_wallpaper">Shuffle wallpaper</string>
+    <string name="live_wallpaper_description">Animated wallpaper</string>
+    <string name="channel_general">General</string>
+    <string name="channel_daily">Wallpaper of the day</string>
+    <string name="daily_title">Wallpaper of the day</string>
+    <string name="daily_body">A new wallpaper is waiting for you</string>
+    <string name="shuffle_done">Wallpaper changed</string>
+</resources>
