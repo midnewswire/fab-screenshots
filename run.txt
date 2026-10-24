@@ -1,0 +1,7 @@
+# <apk name> <demo>: panel:<product>, sources or none
+fabradios-kotlin panel:radios
+fabrecipes-kotlin panel:recipes
+fabgithubwall-kotlin none
+fabdrivewall-kotlin sources
+fabwordpresswall-kotlin sources
+fabbloggerwall-kotlin sources
