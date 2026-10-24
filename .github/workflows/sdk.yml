@@ -18,7 +18,8 @@ jobs:
           BT=$(ls build-tools | sort -V | grep -E '^3[56]' | tail -2 | sed 's#^#build-tools/#' | tr '\n' ' ')
           mkdir -p /tmp/out
           tar --zstd -cf /tmp/out/sdk.tar.zst platforms/android-36* $BT licenses
-          tar --zstd -cf /tmp/out/ndk.tar.zst ndk/27.0.12077973
+          NDK=$(ls ndk | sort -V | grep -E "^2[78]\." | tail -1); [ -n "$NDK" ] || NDK=$(ls ndk | sort -V | tail -1); echo "NDK $NDK"
+          tar --zstd -cf /tmp/out/ndk.tar.zst ndk/$NDK
           cd /tmp/out && split -b 90m sdk.tar.zst sdk.part. && split -b 90m ndk.tar.zst ndk.part. && rm sdk.tar.zst ndk.tar.zst && ls -la
       - name: Publish
         run: |
