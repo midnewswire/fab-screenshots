@@ -1,0 +1,70 @@
+# Emulator screenshots for every app listed in run.txt ("<apk name> <demo>", demo = panel:<product>, sources or none).
+# Each app's screenshots are force-pushed to the shots-<apk name> branch.
+name: capture
+on:
+  workflow_dispatch:
+  push:
+    paths: ['run.txt']
+permissions:
+  contents: write
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      apps: ${{ steps.list.outputs.apps }}
+    steps:
+      - uses: actions/checkout@v5
+      - id: list
+        run: |
+          echo "apps=$(grep -v '^#' run.txt | awk 'NF{printf "%s{\"name\":\"%s\",\"demo\":\"%s\"}", (n++?",":"["), $1, $2} END{print "]"}')" >> "$GITHUB_OUTPUT"
+  capture:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        app: ${{ fromJson(needs.plan.outputs.apps) }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Free disk space for the emulator
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/.ghcup /usr/local/share/boost /usr/local/lib/node_modules /opt/hostedtoolcache/CodeQL
+          docker image prune -af > /dev/null || true
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Demo server
+        run: |
+          case "${{ matrix.app.demo }}" in
+            panel:*) nohup python3 kit/mock_api.py demo/$(echo "${{ matrix.app.demo }}" | cut -d: -f2) 8000 > server.log 2>&1 & ;;
+            sources) nohup python3 kit/demo_sources.py demo/wallpapers 8000 > server.log 2>&1 & ;;
+          esac
+          sleep 2
+      - name: Capture on emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          cores: 4
+          ram-size: 4096M
+          disk-size: 4096M
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
+          script: adb reverse tcp:8000 tcp:8000; timeout 1500 python3 kit/capture.py apks/${{ matrix.app.name }}.apk shots || true
+      - name: Publish to the shots branch
+        if: always()
+        run: |
+          cp server.log shots/ 2>/dev/null || true
+          cd shots
+          git init -q -b shots
+          git config user.name "midnewswire"
+          git config user.email "234676195+midnewswire@users.noreply.github.com"
+          git add .
+          git commit -qm "Screenshots of ${{ matrix.app.name }}"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" shots:shots-${{ matrix.app.name }}
