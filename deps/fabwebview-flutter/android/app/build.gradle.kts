@@ -10,8 +10,7 @@ plugins {
 
 android {
     namespace = "com.fabapps.webviewflutter"
-    // permission_handler_android and the ads SDK (androidx.lifecycle 2.11) need API 37 to compile against.
-    compileSdk = 37
+    compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
