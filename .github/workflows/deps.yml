@@ -8,11 +8,19 @@ on:
     paths: ['deps/**', '.github/workflows/deps.yml']
 permissions:
   contents: write
+concurrency:
+  group: deps
+  cancel-in-progress: true
 jobs:
   cache:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/.ghcup /usr/local/share/boost /usr/local/lib/node_modules /opt/hostedtoolcache/CodeQL
+          docker image prune -af > /dev/null || true
+          df -h /
       - uses: actions/checkout@v5
       - uses: actions/setup-java@v5
         with:
@@ -27,6 +35,8 @@ jobs:
           for d in deps/*-kotlin; do
             echo "::group::$d"
             (cd $d && chmod +x gradlew && ./gradlew --no-daemon -q assembleDebug) || echo "FAILED $d"
+            rm -rf $d/build $d/app/build $d/.gradle ~/.gradle/caches/build-cache-* ~/.gradle/caches/transforms-*
+            df -h / | tail -1
             echo "::endgroup::"
           done
       - name: Flutter stubs
@@ -34,6 +44,9 @@ jobs:
           for d in deps/*-flutter; do
             echo "::group::$d"
             (cd $d && flutter pub get && flutter build apk --profile --target-platform android-x64) || echo "FAILED $d"
+            (cd $d/android && ./gradlew --stop) > /dev/null 2>&1 || true
+            rm -rf $d/build $d/android/.gradle ~/.gradle/caches/build-cache-* ~/.gradle/caches/transforms-* ~/.gradle/caches/*/transforms
+            df -h / | tail -1
             echo "::endgroup::"
           done
       - name: Publish
