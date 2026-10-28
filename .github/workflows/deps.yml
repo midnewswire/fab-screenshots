@@ -34,7 +34,7 @@ jobs:
         run: |
           for d in deps/*-kotlin; do
             echo "::group::$d"
-            (cd $d && chmod +x gradlew && ./gradlew --no-daemon -q assembleDebug) || echo "FAILED $d"
+            (cd $d && chmod +x gradlew && ./gradlew --no-daemon -q assembleDebug) > /tmp/b.log 2>&1 || { echo "FAILED $d" | tee -a /tmp/failed.txt; grep -A6 "What went wrong" /tmp/b.log | tee -a /tmp/failed.txt; }
             rm -rf $d/build $d/app/build $d/.gradle ~/.gradle/caches/build-cache-* ~/.gradle/caches/transforms-*
             df -h / | tail -1
             echo "::endgroup::"
@@ -43,7 +43,7 @@ jobs:
         run: |
           for d in deps/*-flutter; do
             echo "::group::$d"
-            (cd $d && flutter pub get && flutter build apk --profile --target-platform android-x64) || echo "FAILED $d"
+            (cd $d && flutter pub get && flutter build apk --profile --target-platform android-x64) > /tmp/b.log 2>&1 || { echo "FAILED $d" | tee -a /tmp/failed.txt; grep -A6 "What went wrong" /tmp/b.log | tee -a /tmp/failed.txt; }
             (cd $d/android && ./gradlew --stop) > /dev/null 2>&1 || true
             rm -rf $d/build $d/android/.gradle ~/.gradle/caches/build-cache-* ~/.gradle/caches/transforms-* ~/.gradle/caches/*/transforms
             df -h / | tail -1
@@ -56,13 +56,14 @@ jobs:
           mkdir -p /tmp/out
           tar --zstd -cf /tmp/out/toolchain.tar.zst caches/modules-2 wrapper/dists
           cd /tmp/out && split -b 90m toolchain.tar.zst part. && rm toolchain.tar.zst && ls -la
+          touch /tmp/failed.txt && cp /tmp/failed.txt failed.txt
           git init -q -b toolchain
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Push in batches: one 2 GB+ push gets an HTTP 500 from GitHub.
           url="https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
           first=1
-          ls part.* | xargs -n 8 | while read -r batch; do
+          ls part.* failed.txt | xargs -n 8 | while read -r batch; do
             git add $batch && git commit -qm "Gradle cache"
             if [ $first = 1 ]; then git push -qf "$url" toolchain; first=0; else git push -q "$url" toolchain; fi
           done
