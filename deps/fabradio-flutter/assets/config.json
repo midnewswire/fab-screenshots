@@ -1,0 +1,80 @@
+{
+  "station": {
+    "name": "Fab Radio",
+    "tagline": "Ambient beats, all day",
+    "stream_url": "https://ice1.somafm.com/groovesalad-128-mp3",
+    "logo_url": "",
+    "website": "https://example.com"
+  },
+  "remote_config_url": "",
+  "theme": {
+    "primary": "#E53935",
+    "dark_mode": "dark"
+  },
+  "autoplay": false,
+  "artwork_lookup": true,
+  "show_history": true,
+  "sleep_timer_options": [
+    15,
+    30,
+    45,
+    60,
+    90
+  ],
+  "socials": [
+    {
+      "type": "website",
+      "url": "https://example.com"
+    },
+    {
+      "type": "facebook",
+      "url": ""
+    },
+    {
+      "type": "instagram",
+      "url": ""
+    },
+    {
+      "type": "x",
+      "url": ""
+    },
+    {
+      "type": "youtube",
+      "url": ""
+    },
+    {
+      "type": "whatsapp",
+      "url": ""
+    },
+    {
+      "type": "email",
+      "url": ""
+    },
+    {
+      "type": "phone",
+      "url": ""
+    }
+  ],
+  "share_text": "I'm listening to Fab Radio",
+  "privacy_policy_url": "",
+  "about": "Your favourite station, one tap away.",
+  "rate_after_launches": 5,
+  "push": {
+    "topic": "all"
+  },
+  "ads": {
+    "enabled": true,
+    "primary": "admob",
+    "fallback": "none",
+    "admob": {
+      "banner": "ca-app-pub-3940256099942544/6300978111",
+      "interstitial": "ca-app-pub-3940256099942544/1033173712"
+    },
+    "applovin": {
+      "sdk_key": "",
+      "banner": "",
+      "interstitial": ""
+    },
+    "interstitial_every": 4
+  }
+}

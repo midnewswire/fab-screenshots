@@ -1,0 +1,45 @@
+{
+  "blog_url": "https://blogger.googleblog.com",
+  "remote_config_url": "",
+  "theme": {
+    "primary": "#F57C00",
+    "dark_mode": "system"
+  },
+  "tabs": [
+    {
+      "title": "Latest",
+      "label": ""
+    }
+  ],
+  "show_all_labels": true,
+  "layout": "cards",
+  "posts_per_page": 10,
+  "comments": true,
+  "show_author": true,
+  "show_date": true,
+  "text_size": 17,
+  "open_links_in_app": false,
+  "share_text": "Read this on Fab Blogger News",
+  "privacy_policy_url": "",
+  "about": "Every post from our blog, right on your phone.",
+  "rate_after_launches": 5,
+  "push": {
+    "topic": "all"
+  },
+  "ads": {
+    "enabled": true,
+    "primary": "admob",
+    "fallback": "none",
+    "admob": {
+      "banner": "ca-app-pub-3940256099942544/6300978111",
+      "interstitial": "ca-app-pub-3940256099942544/1033173712"
+    },
+    "applovin": {
+      "sdk_key": "",
+      "banner": "",
+      "interstitial": ""
+    },
+    "interstitial_every": 3,
+    "banner_on_detail": true
+  }
+}

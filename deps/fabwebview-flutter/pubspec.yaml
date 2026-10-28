@@ -13,7 +13,7 @@ dependencies:
     git:
       url: https://github.com/midnewswire/fabads-flutter
       path: packages/fab_ads_admob
-      ref: c4f91fb219cf155740053b8b74d928ce08844669
+      ref: bb3508af4729f98d1bd3d32f026eef3e6bcbc18f
   firebase_core: ^5.0.0
   firebase_messaging: ^17.0.0
   flutter:

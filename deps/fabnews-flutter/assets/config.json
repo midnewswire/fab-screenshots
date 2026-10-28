@@ -1,0 +1,28 @@
+{
+  "app_name": "Fab News",
+  "theme": { "primary": "#D32F2F", "dark_mode": "system" },
+  "layout": "cards",
+  "show_breaking": true,
+  "show_featured": true,
+  "comments": true,
+  "share_text": "",
+  "privacy_policy_url": "",
+  "terms_url": "",
+  "about": "",
+  "contact_email": "",
+  "rate_after_launches": 5,
+  "push": { "topic": "all" },
+  "update": { "min_version_code": 0, "url": "" },
+  "ads": {
+    "enabled": false,
+    "primary": "admob",
+    "fallback": "none",
+    "admob": {
+      "banner": "ca-app-pub-3940256099942544/6300978111",
+      "interstitial": "ca-app-pub-3940256099942544/1033173712",
+      "native": ""
+    },
+    "interstitial_every": 4,
+    "native_every": 6
+  }
+}

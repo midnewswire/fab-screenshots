@@ -1,0 +1,75 @@
+{
+  "remote_config_url": "",
+  "app": {
+    "play_store_url": ""
+  },
+  "github": {
+    "repos": [
+      {
+        "repo": "YOUR_GITHUB_USERNAME/wallpapers",
+        "branch": "main",
+        "path": ""
+      }
+    ],
+    "token": "",
+    "cdn": "raw",
+    "thumbnail_url": "",
+    "categories": [
+      {
+        "folder": "nature",
+        "name": "Nature",
+        "tab": true
+      },
+      {
+        "folder": "abstract",
+        "name": "Abstract",
+        "tab": true
+      },
+      {
+        "folder": "dark",
+        "name": "Dark"
+      }
+    ],
+    "only_listed": false,
+    "root_category": "Featured",
+    "cache_minutes": 60
+  },
+  "theme": {
+    "primary_color": "#2DA44E",
+    "dark_mode": "system",
+    "grid_columns": 3,
+    "home_tabs": [
+      "latest",
+      "random",
+      "categories"
+    ]
+  },
+  "features": {
+    "show_source": true
+  },
+  "ads": {
+    "enabled": false,
+    "admob": {
+      "banner": "ca-app-pub-3940256099942544/6300978111",
+      "interstitial": "ca-app-pub-3940256099942544/1033173712",
+      "app_open": "ca-app-pub-3940256099942544/9257395921"
+    },
+    "interstitial_every": 3,
+    "app_open": false,
+    "banner_on_home": true,
+    "banner_on_detail": true
+  },
+  "links": {
+    "privacy_policy": "",
+    "terms": "",
+    "contact_email": "",
+    "more_apps": ""
+  },
+  "version": {
+    "latest_code": 1,
+    "min_code": 1,
+    "message": ""
+  },
+  "firebase_topic": "all",
+  "promotions": []
+}

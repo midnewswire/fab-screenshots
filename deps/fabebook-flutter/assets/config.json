@@ -1,0 +1,19 @@
+{
+  "app_name": "Fab eBook",
+  "theme": { "primary": "#00796B", "dark_mode": "system" },
+  "layout": "grid",
+  "show_featured": true,
+  "show_continue": true,
+  "show_authors": true,
+  "reviews": true,
+  "reader": { "downloads": true, "keep_screen_on": true, "night_mode": true },
+  "share_text": "",
+  "privacy_policy_url": "",
+  "terms_url": "",
+  "about": "",
+  "contact_email": "",
+  "rate_after_launches": 5,
+  "push": { "topic": "all" },
+  "update": { "min_version_code": 0, "url": "" },
+  "ads": { "enabled": false }
+}

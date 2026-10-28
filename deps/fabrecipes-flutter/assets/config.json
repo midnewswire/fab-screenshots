@@ -1,0 +1,20 @@
+{
+  "app_name": "Fab Recipes",
+  "theme": { "primary": "#E65100", "dark_mode": "system" },
+  "layout": "grid",
+  "show_featured": true,
+  "show_tags": true,
+  "show_quick": true,
+  "quick_minutes": 30,
+  "reviews": true,
+  "cooking": { "cooking_mode": true, "keep_screen_on": true, "shopping_list": true, "units": "metric" },
+  "share_text": "",
+  "privacy_policy_url": "",
+  "terms_url": "",
+  "about": "",
+  "contact_email": "",
+  "rate_after_launches": 5,
+  "push": { "topic": "all" },
+  "update": { "min_version_code": 0, "url": "" },
+  "ads": { "enabled": false }
+}
