@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        // FabAds (ads SDK) and the ad networks that are not on Maven Central.
+        maven("https://jitpack.io")
+        maven("https://artifact.bytedance.com/repository/pangle") // pangle, wortise
+        maven("https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea") // mintegral
+        maven("https://maven.wortise.com/artifactory/public") // wortise
+        maven("https://artifactory.bidmachine.io/bidmachine") // wortise
+    }
+}
+
+rootProject.name = "FabWebView"
+include(":app")

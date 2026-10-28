@@ -1,0 +1,65 @@
+{
+  "url": "https://flutter.dev",
+  "remote_config_url": "",
+
+  "toolbar": {
+    "show": true,
+    "title": "",
+    "show_page_title": true
+  },
+  "theme": {
+    "primary": "#1E88E5",
+    "dark_mode": "system",
+    "force_dark_web": false
+  },
+
+  "web": {
+    "pull_to_refresh": true,
+    "progress_bar": true,
+    "zoom": false,
+    "javascript": true,
+    "dom_storage": true,
+    "cache": true,
+    "user_agent": "",
+    "user_agent_suffix": "FabWebView",
+    "geolocation": true,
+    "camera_and_microphone": true,
+    "file_upload": true,
+    "downloads": true,
+    "open_external_hosts_in_browser": true,
+    "internal_hosts": ["flutter.dev", "docs.flutter.dev"],
+    "hide_elements": [],
+    "custom_css": "",
+    "custom_js": ""
+  },
+
+  "menu": [
+    { "title": "Home", "url": "https://flutter.dev", "icon": "home" },
+    { "title": "Docs", "url": "https://docs.flutter.dev", "icon": "book" },
+    { "title": "Contact", "url": "mailto:support@example.com", "icon": "mail" }
+  ],
+
+  "exit_confirmation": true,
+  "rate_after_launches": 5,
+  "share_text": "Check out this app",
+  "privacy_policy_url": "https://example.com/privacy",
+
+  "push": {
+    "topic": "all"
+  },
+
+  "ads": {
+    "enabled": true,
+    "networks": ["admob"],
+    "test_mode": false,
+    "consent_form": true,
+    "interstitial": { "every": 4, "min_seconds": 30 },
+    "app_open": { "enabled": false, "on_resume": false },
+    "placements": { "home_banner": true },
+    "admob": {
+      "banner": "ca-app-pub-3940256099942544/9214589741",
+      "interstitial": "ca-app-pub-3940256099942544/1033173712",
+      "app_open": "ca-app-pub-3940256099942544/9257395921"
+    }
+  }
+}
