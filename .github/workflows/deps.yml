@@ -59,5 +59,10 @@ jobs:
           git init -q -b toolchain
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add . && git commit -qm "Gradle cache"
-          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" toolchain
+          # Push in batches: one 2 GB+ push gets an HTTP 500 from GitHub.
+          url="https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          first=1
+          ls part.* | xargs -n 8 | while read -r batch; do
+            git add $batch && git commit -qm "Gradle cache"
+            if [ $first = 1 ]; then git push -qf "$url" toolchain; first=0; else git push -q "$url" toolchain; fi
+          done
