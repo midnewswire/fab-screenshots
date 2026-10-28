@@ -1,13 +1,2 @@
 # <apk name> <demo>: panel:<product>, sources or none
-fabwebview-kotlin none
-fabnews-flutter panel:news
-fabradios-flutter panel:radios
-fabebook-flutter panel:ebook
-fabrecipes-flutter panel:recipes
-fabgithubwall-flutter none
-fabdrivewall-flutter sources
-fabwordpresswall-flutter sources
-fabbloggerwall-flutter sources
-fabwpnews-flutter none
-fabbloggernews-flutter none
-fabradio-flutter none
+fabwebview-flutter none
