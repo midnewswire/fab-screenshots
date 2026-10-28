@@ -106,6 +106,10 @@ App and admin panel screenshots for every Fab Apps product, taken with demo cont
 
 <img src="fabwallpaperapp/01_home.jpg" width="180"> <img src="fabwallpaperapp/02_saved.jpg" width="180"> <img src="fabwallpaperapp/03_settings.jpg" width="180"> <img src="fabwallpaperapp/04_detail.jpg" width="180"> <img src="fabwallpaperapp/05_home_dark.jpg" width="180">
 
+## fabwebview-flutter
+
+<img src="fabwebview-flutter/01_home.jpg" width="180">
+
 ## fabwebview-kotlin
 
 <img src="fabwebview-kotlin/01_home.jpg" width="180"> <img src="fabwebview-kotlin/02_menu.jpg" width="180">
