@@ -1,0 +1,27 @@
+{
+  "app_name": "Fab Live TV",
+  "theme": { "primary": "#E53935", "dark_mode": "dark" },
+  "layout": "grid",
+  "show_featured": true,
+  "show_recent": true,
+  "show_countries": true,
+  "show_now_playing": true,
+  "player": {
+    "pip": true,
+    "background_audio": false,
+    "auto_fullscreen": true,
+    "resize_mode": "fit",
+    "quality_selector": true,
+    "channel_zapping": true,
+    "sleep_timer": true
+  },
+  "share_text": "",
+  "privacy_policy_url": "",
+  "terms_url": "",
+  "about": "",
+  "contact_email": "",
+  "rate_after_launches": 5,
+  "push": { "topic": "all" },
+  "update": { "min_version_code": 0, "url": "" },
+  "ads": { "enabled": false }
+}

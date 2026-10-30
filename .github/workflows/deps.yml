@@ -34,7 +34,7 @@ jobs:
         run: |
           for d in deps/*-kotlin; do
             echo "::group::$d"
-            (cd $d && chmod +x gradlew && ./gradlew --no-daemon -q assembleDebug) > /tmp/b.log 2>&1 || { echo "FAILED $d" | tee -a /tmp/failed.txt; grep -A6 "What went wrong" /tmp/b.log | tee -a /tmp/failed.txt; }
+            (cd $d && chmod +x gradlew && ./gradlew --no-daemon -q assembleDebug testDebugUnitTest) > /tmp/b.log 2>&1 || { echo "FAILED $d" | tee -a /tmp/failed.txt; grep -A6 "What went wrong" /tmp/b.log | tee -a /tmp/failed.txt; }
             rm -rf $d/build $d/app/build $d/.gradle ~/.gradle/caches/build-cache-* ~/.gradle/caches/transforms-* || true
             df -h / | tail -1
             echo "::endgroup::"
