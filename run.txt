@@ -1,7 +1,2 @@
 # <apk name> <demo>: panel:<product>, sources or none
-fabvideo-kotlin panel:video
-fabvideo-flutter panel:video
-fablivetv-kotlin panel:livetv
 fablivetv-flutter panel:livetv
-fabpodcast-kotlin none
-fabpodcast-flutter none
