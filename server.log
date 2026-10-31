@@ -1,0 +1,17 @@
+127.0.0.1 - - [31/Oct/2026 00:58:54] "GET /api/v1/config HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 00:58:54] "GET /api/v1/videos?page=1&per_page=12&sort=popular HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 00:58:54] "GET /api/v1/videos?page=1&per_page=8&sort=latest&featured=1 HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 00:58:54] "GET /api/v1/playlists?page=1 HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 00:58:54] "GET /api/v1/categories HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 00:58:54] "GET /api/v1/videos?page=1&per_page=20&sort=latest HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 01:00:19] "GET /api/v1/categories HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 01:00:19] "GET /api/v1/playlists?page=1 HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 01:00:26] "GET /api/v1/videos?page=1&per_page=20&sort=latest&category=3 HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 01:00:45] "GET /api/v1/playlists?page=1 HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 01:00:45] "GET /api/v1/categories HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 01:00:49] "GET /api/v1/config HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 01:00:49] "GET /api/v1/categories HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 01:00:49] "GET /api/v1/videos?page=1&per_page=12&sort=popular HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 01:00:49] "GET /api/v1/videos?page=1&per_page=8&sort=latest&featured=1 HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 01:00:49] "GET /api/v1/playlists?page=1 HTTP/1.1" 200 -
+127.0.0.1 - - [31/Oct/2026 01:00:49] "GET /api/v1/videos?page=1&per_page=20&sort=latest HTTP/1.1" 200 -
