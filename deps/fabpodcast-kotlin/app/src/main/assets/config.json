@@ -1,0 +1,27 @@
+{
+  "podcasts": [
+    { "feed": "https://feeds.npr.org/510289/podcast.xml" },
+    { "feed": "https://feeds.npr.org/510318/podcast.xml" }
+  ],
+  "cache_minutes": 60,
+  "theme": { "primary": "#7C3AED", "dark_mode": "system" },
+  "home": { "continue_listening": true, "latest": true, "shows": true },
+  "player": {
+    "skip_back_seconds": 15,
+    "skip_forward_seconds": 30,
+    "autoplay_next": true,
+    "remember_position": true,
+    "mark_played_at_end_seconds": 30
+  },
+  "downloads": true,
+  "show_explicit_badge": true,
+  "share_text": "",
+  "privacy_policy_url": "",
+  "terms_url": "",
+  "about": "",
+  "contact_email": "",
+  "rate_after_launches": 5,
+  "push": { "topic": "all" },
+  "update": { "min_version_code": 0, "url": "" },
+  "ads": { "enabled": false }
+}

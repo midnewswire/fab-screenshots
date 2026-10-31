@@ -64,6 +64,16 @@ flutter {
     source = "../.."
 }
 
+// google_mobile_ads asks for androidx.lifecycle 2.11, which needs compileSdk 37; the Android
+// Gradle plugin used here tops out at 36, so stay on the 2.10 line.
+configurations.all {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "androidx.lifecycle" && requested.version?.startsWith("2.11") == true) {
+            useVersion("2.10.0")
+        }
+    }
+}
+
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 }

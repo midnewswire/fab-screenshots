@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Some video servers and CDNs still serve plain http links, so it is allowed. -->
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>

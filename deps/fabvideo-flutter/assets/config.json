@@ -1,0 +1,27 @@
+{
+  "app_name": "Fab Video",
+  "theme": { "primary": "#FF6D00", "dark_mode": "system" },
+  "layout": "cards",
+  "home": { "featured": true, "continue_watching": true, "playlists": true, "categories": true, "popular": true },
+  "show_views": true,
+  "show_likes": true,
+  "player": {
+    "autoplay_next": true,
+    "pip": true,
+    "background_audio": false,
+    "remember_position": true,
+    "double_tap_seek": 10,
+    "speed_control": true,
+    "quality_selector": true,
+    "captions_on": false
+  },
+  "share_text": "",
+  "privacy_policy_url": "",
+  "terms_url": "",
+  "about": "",
+  "contact_email": "",
+  "rate_after_launches": 5,
+  "push": { "topic": "all" },
+  "update": { "min_version_code": 0, "url": "" },
+  "ads": { "enabled": false }
+}

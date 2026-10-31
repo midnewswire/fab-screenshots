@@ -1,0 +1,30 @@
+{
+  "youtube": {
+    "api_key": "",
+    "channels": [
+      { "id": "UCLA_DiR1FfKNvjuUpBHmylQ", "tab": "NASA" },
+      { "id": "UCSMOQeBJ2RAnuFungnQOxLg", "tab": "Blender" }
+    ],
+    "playlists": [],
+    "cache_minutes": 30,
+    "shorts_max_seconds": 60,
+    "search": true,
+    "comments": true
+  },
+  "theme": { "primary": "#E62117", "dark_mode": "system" },
+  "layout": "cards",
+  "home": { "channel_header": true, "live": true, "shorts": true, "popular": true, "playlists": true, "continue_watching": true },
+  "show_views": true,
+  "show_likes": true,
+  "show_subscribe": true,
+  "player": { "autoplay_next": true, "remember_position": true, "captions": false },
+  "share_text": "",
+  "privacy_policy_url": "",
+  "terms_url": "",
+  "about": "",
+  "contact_email": "",
+  "rate_after_launches": 5,
+  "push": { "topic": "all" },
+  "update": { "min_version_code": 0, "url": "" },
+  "ads": { "enabled": false }
+}
